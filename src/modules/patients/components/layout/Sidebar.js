@@ -1,9 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Users, Calendar, FileText, BarChart3, Home, UserPlus } from "lucide-react";
+import { Users, Calendar, FileText, BarChart3, Home, UserPlus, ChevronLeft, ChevronRight } from "lucide-react";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({ isCollapsed, setIsCollapsed }) => {
   const location = useLocation();
 
   const menuItems = [
@@ -16,8 +16,19 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="sidebar">
-      <div className="sidebar-header">🏥 Eureka Clinique</div>
+    <div className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
+      {/* Toggle Button */}
+      <button 
+        className="sidebar-toggle"
+        onClick={() => setIsCollapsed(!isCollapsed)}
+        aria-label={isCollapsed ? "Ouvrir la sidebar" : "Fermer la sidebar"}
+      >
+        {isCollapsed ? <ChevronRight size={20} /> : <ChevronLeft size={20} />}
+      </button>
+
+      <div className="sidebar-header">
+        {isCollapsed ? "🏥" : "🏥 Eureka Clinique"}
+      </div>
       
       <nav className="sidebar-nav">
         {menuItems.map((item, index) => (
@@ -27,18 +38,21 @@ const Sidebar = () => {
             className={`sidebar-link ${
               location.pathname === item.path ? "active" : ""
             }`}
+            title={isCollapsed ? item.label : ""}
           >
             {item.icon}
-            <span>{item.label}</span>
+            {!isCollapsed && <span>{item.label}</span>}
           </Link>
         ))}
       </nav>
 
       {/* Footer */}
-      <div className="sidebar-footer">
-        <p>© 2025 Eureka Clinique.</p>
-        <p>Tous droits réservés.</p>
-      </div>
+      {!isCollapsed && (
+        <div className="sidebar-footer">
+          <p>© 2025 Eureka Clinique.</p>
+          <p>Tous droits réservés.</p>
+        </div>
+      )}
     </div>
   );
 };

@@ -50,3 +50,57 @@
   overflow-y: auto;
 }
 
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Main (Header + Contenu) */
+.main {
+  flex: 1;
+  margin-left: 250px; /* Marge pour sidebar normale */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: margin-left 0.3s ease; /* ✅ Animation fluide */
+}
+
+/* Quand la sidebar est repliée */
+.main.sidebar-collapsed {
+  margin-left: 80px; /* ✅ Marge réduite */
+}
+
+/* Header global */
+.app-header {
+  flex-shrink: 0;
+  height: 64px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* Contenu sous le header */
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .main {
+    margin-left: 80px; /* Toujours réduit sur mobile */
+  }
+  
+  .main.sidebar-collapsed {
+    margin-left: 80px;
+  }
+}
