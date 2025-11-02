@@ -1,0 +1,52 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* Sidebar fixée à gauche */
+.sidebar {
+  width: 240px;
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+/* Main (Header + Contenu) */
+.main {
+  flex: 1;
+  margin-left: 240px; /* Laisse la place pour la sidebar */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header global */
+.app-header {
+  flex-shrink: 0;
+  height: 64px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+/* Contenu sous le header */
+.content {
+  flex: 1;
+  padding: 20px;
+  margin-top: 0; /* inutile maintenant */
+  overflow-y: auto;
+}
+

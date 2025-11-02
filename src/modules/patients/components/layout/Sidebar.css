@@ -1,0 +1,107 @@
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #f8fafc;
+  color: #1e293b;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-right: 1px solid #e2e8f0;
+  box-shadow: 2px 0 6px rgba(0,0,0,0.05);
+  z-index: 1000;
+}
+
+.sidebar-header {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px;
+  background: #3b82f6;
+  color: white;
+}
+
+.sidebar-nav {
+  flex: 1; /* ✅ Prend tout l'espace disponible */
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  overflow-y: auto; /* ✅ Scroll si trop de liens */
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px;
+  color: #374151;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-link:hover {
+  background: #f1f5f9;
+  color: #111827;
+}
+
+.sidebar-link.active {
+  background: #e0f2fe;
+  color: #1d4ed8;
+  border-left: 4px solid #3b82f6;
+  font-weight: 600;
+}
+
+.sidebar-group-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  margin: 15px 10px 8px;
+  white-space: normal;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+/* ==================== FOOTER ==================== */
+.sidebar-footer {
+  padding: 16px 20px;
+  text-align: center;
+  font-size: 11px;
+  color: #6b7280;
+  background: #f1f5f9;
+  border-top: 1px solid #e2e8f0;
+  line-height: 1.5;
+}
+
+.sidebar-footer p {
+  margin: 0;
+}
+
+.sidebar-footer p:first-child {
+  font-weight: 600;
+  color: #374151;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+
+  .sidebar-header {
+    font-size: 24px;
+    padding: 15px 0;
+  }
+
+  .sidebar-link span,
+  .sidebar-group-title,
+  .sidebar-footer {
+    display: none;
+  }
+
+  .sidebar-link {
+    justify-content: center;
+    padding: 14px 0;
+  }
+}

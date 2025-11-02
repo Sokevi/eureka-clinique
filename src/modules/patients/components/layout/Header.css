@@ -1,0 +1,387 @@
+.app-header {
+  height: 60px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-logo {
+  width: 32px;
+  height: 32px;
+}
+
+.header-left h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--brand);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* ==================== MODULE SWITCHER ==================== */
+.module-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, var(--brand), #5a6ec7);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(107, 127, 215, 0.3);
+}
+
+.module-switcher:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(107, 127, 215, 0.4);
+}
+
+.module-switcher svg.rotate {
+  transform: rotate(180deg);
+  transition: transform 0.3s;
+}
+
+/* ==================== DROPDOWN OVERLAY ==================== */
+.dropdown-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 199;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ==================== DROPDOWN PANEL ==================== */
+.dropdown-panel {
+  position: fixed;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+  min-width: 600px;
+  max-width: 95vw;
+  max-height: 85vh;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 200;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(107, 127, 215, 0.05), rgba(95, 184, 143, 0.05));
+}
+
+.dropdown-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  background: var(--chip);
+  color: var(--text);
+}
+
+/* ==================== MODULES CONTAINER ==================== */
+.modules-container {
+  padding: 24px;
+  max-height: calc(80vh - 80px);
+  overflow-y: auto;
+}
+
+.module-section {
+  margin-bottom: 32px;
+}
+
+.module-section:last-child {
+  margin-bottom: 0;
+}
+
+.module-section-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+/* ==================== MODULE GRID ==================== */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.module-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.module-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  border-color: var(--brand);
+}
+
+.module-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.module-card:hover .module-icon {
+  transform: scale(1.1);
+}
+
+.module-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ==================== USER INFO ==================== */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.user-info:hover {
+  background: var(--chip);
+  border-color: var(--brand);
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--brand);
+}
+
+.username {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ==================== SCROLLBAR ==================== */
+.modules-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modules-container::-webkit-scrollbar-track {
+  background: var(--card);
+  border-radius: 4px;
+}
+
+.modules-container::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+.modules-container::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .dropdown-panel {
+    width: 95vw;
+    right: 2.5vw;
+    max-height: 70vh;
+  }
+
+  .module-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+  }
+
+  .module-card {
+    padding: 12px;
+  }
+
+  .module-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .module-name {
+    font-size: 11px;
+  }
+
+  .username {
+    display: none;
+  }
+
+  .module-switcher span {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .module-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dropdown-header h3 {
+    font-size: 16px;
+  }
+
+  .modules-container {
+    padding: 16px;
+  }
+}
+
+/* Retirer l’overlay (plus utilisé) */
+.dropdown-overlay { display: none !important; }
+
+/* Panneau centré au milieu de l’écran, sans animation */
+.dropdown-panel {
+  position: fixed;
+  /* on ignore top:70px; et l’animation d’avant */
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  z-index: 200;
+  width: auto;
+  min-width: 680px;     /* un peu plus large au centre */
+  max-width: 95vw;
+  max-height: 80vh;
+  /* plus d’animation */
+  animation: none !important;
+}
+
+/* Variante centrée */
+.dropdown-panel.center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* En-tête du panneau (garde un léger fond) */
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(
+    135deg,
+    rgba(107, 127, 215, 0.05),
+    rgba(95, 184, 143, 0.05)
+  );
+}
+
+/* Contenu scrollable */
+.modules-container {
+  padding: 24px;
+  max-height: calc(80vh - 80px);
+  overflow-y: auto;
+}
+
+/* Grille de modules (garde ton style) */
+.module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+/* Supprimer toutes les animations définies avant */
+@keyframes fadeIn { from {opacity:1;} to {opacity:1;} }
+@keyframes slideDown { from {opacity:1;} to {opacity:1;} }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dropdown-panel {
+    min-width: 90vw;
+    max-height: 70vh;
+  }
+  .module-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+}
